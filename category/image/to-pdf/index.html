@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images to PDF — LocalAll</title>
+    <meta name="description" content="Combine images into one PDF locally. Reorder pages, pick A4 or original size. Files never leave your device.">
+    <meta property="og:title" content="Images to PDF — LocalAll">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#img-dropzone">Skip to uploader</a>
+    <header class="site-header">
+        <a class="brand" href="../../../#hero" aria-label="LocalAll home">LocalAll</a>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="../../../#hero">Home</a>
+                <a href="../../pdf/">PDF</a>
+                <a href="../" aria-current="page">Image</a>
+                <a href="../../video/">Video</a>
+                <a href="../../audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
+    </header>
+    <main class="pdf-tool-page">
+        <div class="tool-heading">
+            <a class="tool-back-link" href="../">← Image converter</a>
+            <p class="tool-eyebrow">IMAGE TOOL</p>
+            <h1>Images to PDF</h1>
+            <p class="tool-description">The reverse of “PDF to images”: drop photos, reorder with ↑↓, then build one PDF. Max 30 images, 25 MB each.</p>
+        </div>
+        <noscript><p class="pdf-status is-error">This tool needs JavaScript.</p></noscript>
+        <input class="visually-hidden" id="img-input" type="file" accept="image/*" multiple tabindex="-1" aria-hidden="true">
+        <section class="pdf-workspace" aria-label="Images to PDF">
+            <div class="pdf-dropzone" id="img-dropzone" tabindex="0" role="button" aria-label="Drop images here or press Enter">
+                <div class="dropzone-icon" aria-hidden="true">↑</div>
+                <h2>Drop your images here</h2>
+                <p>one or many, reorder after</p>
+                <button class="button button-secondary" id="choose-img" type="button">Choose images</button>
+                <span class="dropzone-hint">Images only • 25 MB each</span>
+            </div>
+            <div class="pdf-editor" id="img-editor" hidden>
+                <aside class="pdf-sidebar" aria-label="Selected images">
+                    <div class="pdf-sidebar-heading">
+                        <h2>Files <span id="img-count">0</span></h2>
+                        <button class="add-pdf-button" id="add-img" type="button" aria-label="Add more images">+</button>
+                    </div>
+                    <ol class="pdf-file-list" id="img-file-list"></ol>
+                    <button class="button button-add" id="add-img-list" type="button">+ Add images</button>
+                </aside>
+                <section class="pdf-preview" aria-label="Image preview">
+                    <div class="preview-toolbar">
+                        <span id="preview-filename">Choose an image to preview</span>
+                    </div>
+                    <div class="img-stage" style="min-height:400px;"><img id="img-preview" alt="Selected image preview"></div>
+                </section>
+            </div>
+        </section>
+        <div class="tool-controls" id="tool-controls" hidden>
+            <div class="control-row">
+                <label for="page-size">Page size</label>
+                <select id="page-size">
+                    <option value="fit" selected>Fit to image (one image = one page)</option>
+                    <option value="a4">A4 (images centered, margins)</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label for="jpeg-q">Photo quality <output id="jpeg-q-val" for="jpeg-q">85%</output></label>
+                <input type="range" id="jpeg-q" min="40" max="100" step="5" value="85">
+            </div>
+        </div>
+        <div class="pdf-tool-footer">
+            <p class="pdf-status" id="img-status" role="status" aria-live="polite">Add at least one image.</p>
+            <button class="button button-primary" id="img-action" type="button" disabled>Build PDF</button>
+        </div>
+    </main>
+    <footer class="site-footer"><p>LocalAll — PDF is built on your device.</p></footer>
+    <script src="../../../assets/js/vendor/pdf-lib.min.js" defer></script>
+    <script src="../../../assets/js/image-to-pdf.js" defer></script>
+    <script src="../../../assets/js/script.js" defer></script>
+</body>
+</html>

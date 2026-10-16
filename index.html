@@ -1,29 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalAll</title>
+    <title>LocalAll — Free local file tools, private by design</title>
+    <meta name="description" content="LocalAll offers free file tools that run 100% in your browser. Merge PDFs and more. Your files never leave your device.">
+    <meta name="theme-color" content="#171923" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f4efe9" media="(prefers-color-scheme: light)">
+    <meta property="og:title" content="LocalAll — Everything in one place">
+    <meta property="og:description" content="Free local file tools. Your files never leave your device.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="LocalAll — Free local file tools">
+    <meta name="twitter:description" content="Merge PDFs locally. No upload, no account.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#categories-title">Skip to tools</a>
     <header class="site-header">
         <a class="brand" href="#hero" aria-label="LocalAll home">LocalAll</a>
-        <nav aria-label="Main navigation">
-            <a href="#hero">Home</a>
-            <a href="category/pdf/">PDF</a>
-            <a href="category/image/">Image</a>
-            <a href="category/video/">Vidéo</a>
-            <a href="category/audio/">Audio</a>
-        </nav>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="#hero" aria-current="page">Home</a>
+                <a href="category/pdf/">PDF</a>
+                <a href="category/image/">Image</a>
+                <a href="category/video/">Video</a>
+                <a href="category/audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
     </header>
     <main>
         <section id="hero">
-            <div class="hero-title">
-                <h1>Everything</h1>
-                <h2>In one place</h2>
+            <div>
+                <span class="hero-badge">100% local • No upload • No account</span>
+                <div class="hero-title">
+                    <h1>Everything</h1>
+                    <h2>In one place</h2>
+                </div>
             </div>
-            <p>Your files should never leave your device.</p>
+            <div>
+                <p>Your files should never leave your device.</p>
+                <div class="hero-actions">
+                    <a class="hero-cta hero-cta-primary" href="#categories-title">Browse tools</a>
+                    <a class="hero-cta hero-cta-secondary" href="category/pdf/tools/">Merge PDFs →</a>
+                </div>
+            </div>
         </section>
         <section class="file-categories" aria-labelledby="categories-title">
             <div class="categories-heading reveal">
@@ -38,7 +61,7 @@
                         </svg>
                     </div>
                     <h3>PDF</h3>
-                    <p>Your documents, all together.</p>
+                    <p>Merge, compress, PDF to images.</p>
                 </a>
                 <a class="category-card reveal" id="image" href="category/image/">
                     <div class="category-icon" aria-hidden="true">
@@ -49,7 +72,7 @@
                         </svg>
                     </div>
                     <h3>Image</h3>
-                    <p>Every photo in one place.</p>
+                    <p>Convert, compress, resize, crop.</p>
                 </a>
                 <a class="category-card reveal" id="video" href="category/video/">
                     <div class="category-icon" aria-hidden="true">
@@ -58,7 +81,7 @@
                             <path d="m10 9 5 3-5 3V9Z" />
                         </svg>
                     </div>
-                    <h3>Vidéo</h3>
+                    <h3>Video</h3>
                     <p>Your videos, ready to find.</p>
                 </a>
                 <a class="category-card reveal" id="audio" href="category/audio/">
@@ -75,6 +98,10 @@
             </div>
         </section>
     </main>
-    <script src="assets/js/script.js"></script>
+    <footer class="site-footer">
+        <p>LocalAll — free tools that run in your browser.</p>
+        <p>Files stay on your device. No upload, no tracking.</p>
+    </footer>
+    <script src="assets/js/script.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDFs — LocalAll</title>
+    <meta name="description" content="Merge multiple PDFs into one, free and private. Runs 100% in your browser, files never uploaded.">
+    <meta property="og:title" content="Merge PDFs — LocalAll">
+    <meta property="og:description" content="Combine PDF files locally. No upload, no account.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#pdf-dropzone">Skip to PDF uploader</a>
+    <header class="site-header">
+        <a class="brand" href="../../../#hero" aria-label="LocalAll home">LocalAll</a>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="../../../#hero">Home</a>
+                <a href="../" aria-current="page">PDF</a>
+                <a href="../../image/">Image</a>
+                <a href="../../video/">Video</a>
+                <a href="../../audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
+    </header>
+    <main class="pdf-tool-page">
+        <div class="tool-heading">
+            <a class="tool-back-link" href="../">← PDF tools</a>
+            <p class="tool-eyebrow">PDF TOOL</p>
+            <h1>Merge PDFs</h1>
+            <p class="tool-description">Combine your PDF files into one document. Files stay on your device. Max 50 files, 100 MB each. Password-protected PDFs must be unlocked first.</p>
+        </div>
+
+        <noscript><p class="pdf-status is-error">This tool needs JavaScript to merge PDFs locally.</p></noscript>
+        <input class="visually-hidden" id="pdf-input" type="file" accept=".pdf,application/pdf" multiple tabindex="-1" aria-hidden="true">
+        <section class="pdf-workspace" aria-label="PDF merger">
+            <div class="pdf-dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Drop PDF files here or press Enter to choose files">
+                <div class="dropzone-icon" aria-hidden="true">↑</div>
+                <h2>Drop your PDFs here</h2>
+                <p>or choose files from your device</p>
+                <button class="button button-secondary" id="choose-pdfs" type="button">Choose PDFs</button>
+                <span class="dropzone-hint">PDF files only • 100 MB max each</span>
+            </div>
+
+            <div class="pdf-editor" id="pdf-editor" hidden>
+                <aside class="pdf-sidebar" aria-label="Selected PDF files">
+                    <div class="pdf-sidebar-heading">
+                        <h2>Files <span id="pdf-count">0</span></h2>
+                        <button class="add-pdf-button" id="add-pdf" type="button" aria-label="Add more PDF files">+</button>
+                    </div>
+                    <ol class="pdf-file-list" id="pdf-file-list"></ol>
+                    <button class="button button-add" id="add-pdf-list" type="button">+ Add PDFs</button>
+                </aside>
+                <section class="pdf-preview" aria-label="PDF preview">
+                    <div class="preview-toolbar">
+                        <span id="preview-filename">Choose a PDF to preview</span>
+                        <button class="preview-add-button" id="preview-add-pdf" type="button">+ Add PDFs</button>
+                    </div>
+                    <iframe id="pdf-preview-frame" title="Selected PDF preview"></iframe>
+                </section>
+            </div>
+        </section>
+
+        <div class="pdf-tool-footer">
+            <p class="pdf-status" id="pdf-status" role="status" aria-live="polite">Add at least two PDFs to merge.</p>
+            <button class="button button-primary" id="merge-pdfs" type="button" disabled>Merge PDFs</button>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <p>LocalAll — merging happens on your device, nothing is uploaded.</p>
+    </footer>
+    <script src="../../../assets/js/vendor/pdf-lib.min.js" defer></script>
+    <script src="../../../assets/js/pdf-merger.js" defer></script>
+    <script src="../../../assets/js/script.js" defer></script>
+</body>
+</html>

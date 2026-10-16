@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress photo — LocalAll</title>
+    <meta name="description" content="Compress photos locally with quality and max-size control. Files never leave your device.">
+    <meta property="og:title" content="Compress photo — LocalAll">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#img-dropzone">Skip to uploader</a>
+    <header class="site-header">
+        <a class="brand" href="../../../#hero" aria-label="LocalAll home">LocalAll</a>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="../../../#hero">Home</a>
+                <a href="../../pdf/">PDF</a>
+                <a href="../" aria-current="page">Image</a>
+                <a href="../../video/">Video</a>
+                <a href="../../audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
+    </header>
+    <main class="pdf-tool-page">
+        <div class="tool-heading">
+            <a class="tool-back-link" href="../">← Image converter</a>
+            <p class="tool-eyebrow">IMAGE TOOL</p>
+            <h1>Compress photo</h1>
+            <p class="tool-description">Lower quality and/or cap the longest side to shrink photos. Shows before → after size. Max 25 MB input.</p>
+        </div>
+        <noscript><p class="pdf-status is-error">This tool needs JavaScript.</p></noscript>
+        <input class="visually-hidden" id="img-input" type="file" accept="image/*" tabindex="-1" aria-hidden="true">
+        <section class="img-workspace" aria-label="Compress photo">
+            <div class="pdf-dropzone" id="img-dropzone" tabindex="0" role="button" aria-label="Drop an image here or press Enter">
+                <div class="dropzone-icon" aria-hidden="true">↑</div>
+                <h2>Drop your photo here</h2>
+                <p>or choose from your device</p>
+                <button class="button button-secondary" id="choose-img" type="button">Choose image</button>
+                <span class="dropzone-hint">Any image • 25 MB max</span>
+            </div>
+            <div id="img-stage-wrap" hidden>
+                <div class="preview-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 1.25rem;border-bottom:1px solid var(--border);">
+                    <span id="preview-filename">No file</span>
+                    <button class="preview-add-button" id="change-img" type="button">Change</button>
+                </div>
+                <div class="img-stage"><img id="img-preview" alt="Selected image preview"></div>
+                <div class="img-meta" id="img-meta"></div>
+            </div>
+        </section>
+        <div class="tool-controls" id="tool-controls" hidden>
+            <div class="control-row">
+                <label for="quality">Quality <output id="quality-val" for="quality">70%</output></label>
+                <input type="range" id="quality" min="10" max="95" step="5" value="70">
+            </div>
+            <div class="control-row">
+                <label for="maxside">Longest side max</label>
+                <select id="maxside">
+                    <option value="0">Keep original size</option>
+                    <option value="800">800 px</option>
+                    <option value="1280">1280 px</option>
+                    <option value="1920" selected>1920 px</option>
+                    <option value="2560">2560 px</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label for="out-format">Output</label>
+                <select id="out-format">
+                    <option value="image/jpeg" selected>JPEG (smallest)</option>
+                    <option value="image/webp">WebP</option>
+                    <option value="image/png">PNG (lossless, bigger)</option>
+                </select>
+            </div>
+        </div>
+        <div class="pdf-tool-footer">
+            <p class="pdf-status" id="img-status" role="status" aria-live="polite">Add a photo to compress.</p>
+            <button class="button button-primary" id="img-action" type="button" disabled>Compress &amp; download</button>
+        </div>
+    </main>
+    <footer class="site-footer"><p>LocalAll — compression happens on your device.</p></footer>
+    <script src="../../../assets/js/image-compress.js" defer></script>
+    <script src="../../../assets/js/script.js" defer></script>
+</body>
+</html>

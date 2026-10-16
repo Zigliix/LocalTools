@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos — LocalAll</title>
+    <title>Video tools — LocalAll</title>
+    <meta name="description" content="Local video tools, coming soon. All processing stays on your device.">
+    <meta property="og:title" content="Video tools — LocalAll">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
     <header class="site-header">
         <a class="brand" href="../../#hero" aria-label="LocalAll home">LocalAll</a>
-        <nav aria-label="Main navigation">
-            <a href="../../#hero">Home</a>
-            <a href="../pdf/">PDF</a>
-            <a href="../image/">Image</a>
-            <a href="../video/" aria-current="page">Vidéo</a>
-            <a href="../audio/">Audio</a>
-        </nav>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="../../#hero">Home</a>
+                <a href="../pdf/">PDF</a>
+                <a href="../image/">Image</a>
+                <a href="../video/" aria-current="page">Video</a>
+                <a href="../audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
     </header>
     <main class="category-page">
         <div class="category-icon" aria-hidden="true">
@@ -28,5 +35,9 @@
         <p>Your videos, gathered in one place. Files stay on your device.</p>
         <a class="back-link" href="../../#categories-title">← Back to all categories</a>
     </main>
+    <footer class="site-footer">
+        <p>LocalAll — free tools that run in your browser.</p>
+    </footer>
+    <script src="../../assets/js/script.js" defer></script>
 </body>
 </html>

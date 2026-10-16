@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize image — LocalAll</title>
+    <meta name="description" content="Resize images by width, height or percent, locally. Files never leave your device.">
+    <meta property="og:title" content="Resize image — LocalAll">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#img-dropzone">Skip to uploader</a>
+    <header class="site-header">
+        <a class="brand" href="../../../#hero" aria-label="LocalAll home">LocalAll</a>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="../../../#hero">Home</a>
+                <a href="../../pdf/">PDF</a>
+                <a href="../" aria-current="page">Image</a>
+                <a href="../../video/">Video</a>
+                <a href="../../audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
+    </header>
+    <main class="pdf-tool-page">
+        <div class="tool-heading">
+            <a class="tool-back-link" href="../">← Image converter</a>
+            <p class="tool-eyebrow">IMAGE TOOL</p>
+            <h1>Resize</h1>
+            <p class="tool-description">Set an exact width/height (aspect locked) or a scale percent. Max 25 MB input.</p>
+        </div>
+        <noscript><p class="pdf-status is-error">This tool needs JavaScript.</p></noscript>
+        <input class="visually-hidden" id="img-input" type="file" accept="image/*" tabindex="-1" aria-hidden="true">
+        <section class="img-workspace" aria-label="Resize image">
+            <div class="pdf-dropzone" id="img-dropzone" tabindex="0" role="button" aria-label="Drop an image here or press Enter">
+                <div class="dropzone-icon" aria-hidden="true">↑</div>
+                <h2>Drop your image here</h2>
+                <p>or choose from your device</p>
+                <button class="button button-secondary" id="choose-img" type="button">Choose image</button>
+                <span class="dropzone-hint">Any image • 25 MB max</span>
+            </div>
+            <div id="img-stage-wrap" hidden>
+                <div class="preview-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 1.25rem;border-bottom:1px solid var(--border);">
+                    <span id="preview-filename">No file</span>
+                    <button class="preview-add-button" id="change-img" type="button">Change</button>
+                </div>
+                <div class="img-stage"><img id="img-preview" alt="Selected image preview"></div>
+                <div class="img-meta" id="img-meta"></div>
+            </div>
+        </section>
+        <div class="tool-controls" id="tool-controls" hidden>
+            <div class="control-row">
+                <label for="mode">Mode</label>
+                <select id="mode">
+                    <option value="width" selected>Width (auto height)</option>
+                    <option value="height">Height (auto width)</option>
+                    <option value="percent">Scale percent</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label for="size-val">Size</label>
+                <input type="number" id="size-val" min="1" max="12000" value="1280">
+                <span class="control-hint" id="size-unit">px wide</span>
+            </div>
+            <div class="control-row">
+                <label for="out-format">Output</label>
+                <select id="out-format">
+                    <option value="image/png" selected>PNG</option>
+                    <option value="image/jpeg">JPEG</option>
+                    <option value="image/webp">WebP</option>
+                </select>
+            </div>
+            <p class="control-hint" id="dim-hint">Aspect ratio is always preserved.</p>
+        </div>
+        <div class="pdf-tool-footer">
+            <p class="pdf-status" id="img-status" role="status" aria-live="polite">Add an image to resize.</p>
+            <button class="button button-primary" id="img-action" type="button" disabled>Resize &amp; download</button>
+        </div>
+    </main>
+    <footer class="site-footer"><p>LocalAll — resizing happens on your device.</p></footer>
+    <script src="../../../assets/js/image-resize.js" defer></script>
+    <script src="../../../assets/js/script.js" defer></script>
+</body>
+</html>

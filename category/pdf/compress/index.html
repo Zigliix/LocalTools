@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress PDF — LocalAll</title>
+    <meta name="description" content="Compress a PDF locally with a quality slider (10-90%). Files never leave your device.">
+    <meta property="og:title" content="Compress PDF — LocalAll">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#pdf-dropzone">Skip to PDF uploader</a>
+    <header class="site-header">
+        <a class="brand" href="../../../#hero" aria-label="LocalAll home">LocalAll</a>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="../../../#hero">Home</a>
+                <a href="../" aria-current="page">PDF</a>
+                <a href="../../image/">Image</a>
+                <a href="../../video/">Video</a>
+                <a href="../../audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
+    </header>
+    <main class="pdf-tool-page">
+        <div class="tool-heading">
+            <a class="tool-back-link" href="../">← PDF tools</a>
+            <p class="tool-eyebrow">PDF TOOL</p>
+            <h1>Compress PDF</h1>
+            <p class="tool-description">Shrink one PDF on your device. Pick a quality from 10% (tiny file) to 90% (near original). Text pages shrink little; scanned/image PDFs shrink a lot.</p>
+        </div>
+        <noscript><p class="pdf-status is-error">This tool needs JavaScript to compress PDFs locally.</p></noscript>
+        <input class="visually-hidden" id="pdf-input" type="file" accept=".pdf,application/pdf" tabindex="-1" aria-hidden="true">
+        <section class="pdf-workspace" aria-label="PDF compressor">
+            <div class="pdf-dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Drop a PDF file here or press Enter to choose a file">
+                <div class="dropzone-icon" aria-hidden="true">↑</div>
+                <h2>Drop your PDF here</h2>
+                <p>one file, max 100 MB</p>
+                <button class="button button-secondary" id="choose-pdf" type="button">Choose PDF</button>
+                <span class="dropzone-hint">Single PDF only</span>
+            </div>
+            <div class="pdf-editor" id="pdf-editor" hidden style="grid-template-columns: minmax(0,1fr);">
+                <section class="pdf-preview" aria-label="Selected PDF">
+                    <div class="preview-toolbar">
+                        <span id="preview-filename">No file</span>
+                        <button class="preview-add-button" id="change-pdf" type="button">Change PDF</button>
+                    </div>
+                    <div class="img-meta" id="pdf-meta"><span>Waiting for file…</span></div>
+                </section>
+            </div>
+        </section>
+        <div class="tool-controls" id="compress-controls" hidden>
+            <div class="control-row">
+                <label for="quality">Quality <output id="quality-val" for="quality">60%</output></label>
+                <input type="range" id="quality" min="10" max="90" step="5" value="60">
+            </div>
+            <p class="control-hint">Lower % = smaller file, blurrier images. Pages are re-rendered as JPEG at this quality.</p>
+        </div>
+        <div class="pdf-tool-footer">
+            <p class="pdf-status" id="pdf-status" role="status" aria-live="polite">Add a PDF to compress.</p>
+            <button class="button button-primary" id="compress-pdf" type="button" disabled>Compress PDF</button>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <p>LocalAll — compression happens on your device, nothing is uploaded.</p>
+    </footer>
+    <script src="../../../assets/js/vendor/pdf-lib.min.js" defer></script>
+    <script type="module" src="../../../assets/js/pdf-compress.js"></script>
+    <script src="../../../assets/js/script.js" defer></script>
+</body>
+</html>

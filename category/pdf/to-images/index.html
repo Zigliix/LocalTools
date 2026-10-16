@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to images — LocalAll</title>
+    <meta name="description" content="Export every PDF page as PNG or JPEG, locally in your browser. Files never leave your device.">
+    <meta property="og:title" content="PDF to images — LocalAll">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#pdf-dropzone">Skip to PDF uploader</a>
+    <header class="site-header">
+        <a class="brand" href="../../../#hero" aria-label="LocalAll home">LocalAll</a>
+        <div class="header-actions">
+            <nav aria-label="Main navigation">
+                <a href="../../../#hero">Home</a>
+                <a href="../" aria-current="page">PDF</a>
+                <a href="../../image/">Image</a>
+                <a href="../../video/">Video</a>
+                <a href="../../audio/">Audio</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">☀</button>
+        </div>
+    </header>
+    <main class="pdf-tool-page">
+        <div class="tool-heading">
+            <a class="tool-back-link" href="../">← PDF tools</a>
+            <p class="tool-eyebrow">PDF TOOL</p>
+            <h1>PDF to images</h1>
+            <p class="tool-description">Export every page as PNG or JPEG, on your device. Max 100 MB per PDF, 50 pages max.</p>
+        </div>
+        <noscript><p class="pdf-status is-error">This tool needs JavaScript to export images locally.</p></noscript>
+        <input class="visually-hidden" id="pdf-input" type="file" accept=".pdf,application/pdf" tabindex="-1" aria-hidden="true">
+        <section class="pdf-workspace" aria-label="PDF to images">
+            <div class="pdf-dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Drop a PDF file here or press Enter to choose a file">
+                <div class="dropzone-icon" aria-hidden="true">↑</div>
+                <h2>Drop your PDF here</h2>
+                <p>one file, max 100 MB</p>
+                <button class="button button-secondary" id="choose-pdf" type="button">Choose PDF</button>
+                <span class="dropzone-hint">Single PDF only</span>
+            </div>
+            <div id="img-results" hidden>
+                <div class="preview-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 1.25rem;border-bottom:1px solid var(--border);">
+                    <span id="preview-filename">No file</span>
+                    <button class="preview-add-button" id="change-pdf" type="button">Change PDF</button>
+                </div>
+                <div class="thumb-grid" id="thumb-grid"></div>
+            </div>
+        </section>
+        <div class="tool-controls" id="export-controls" hidden>
+            <div class="control-row">
+                <label for="img-format">Format</label>
+                <select id="img-format">
+                    <option value="png">PNG (lossless)</option>
+                    <option value="jpeg" selected>JPEG (smaller)</option>
+                </select>
+            </div>
+            <div class="control-row" id="jpeg-q-row">
+                <label for="jpeg-q">JPEG quality <output id="jpeg-q-val" for="jpeg-q">85%</output></label>
+                <input type="range" id="jpeg-q" min="40" max="100" step="5" value="85">
+            </div>
+            <div class="control-row">
+                <label for="img-scale">Resolution</label>
+                <select id="img-scale">
+                    <option value="1">Standard (1x)</option>
+                    <option value="1.5" selected>High (1.5x)</option>
+                    <option value="2">Very high (2x)</option>
+                </select>
+            </div>
+        </div>
+        <div class="pdf-tool-footer">
+            <p class="pdf-status" id="pdf-status" role="status" aria-live="polite">Add a PDF to export.</p>
+            <button class="button button-primary" id="export-images" type="button" disabled>Export pages</button>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <p>LocalAll — export happens on your device, nothing is uploaded.</p>
+    </footer>
+    <script type="module" src="../../../assets/js/pdf-to-images.js"></script>
+    <script src="../../../assets/js/script.js" defer></script>
+</body>
+</html>
